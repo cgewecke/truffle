@@ -91,6 +91,7 @@ elif [ "$MOSAIC" = true ]; then
   npm install
 
   ./tools/run_ganache_cli.sh </dev/null 1>/dev/null 2>&1 &
+  sleep 10
 
   truffle version
   truffle compile
