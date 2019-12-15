@@ -83,6 +83,15 @@ elif [ "$FABRICEVM" = true ]; then
   cd $root
   lerna run --scope truffle test --stream -- --exit
 
+elif [ "$COLONY" = true ]; then
+
+  git clone https://github.com/JoinColony/colonyNetwork.git
+  cd colonyNetwork && yarn
+  git submodule update --init
+  truffle version
+  truffle compile --compilers.solc.parser=solcjs && truffle compile --compilers.solc.parser=solcjs --contracts_directory 'lib/dappsys/[!note][!stop][!proxy][!thing][!token]*.sol' && bash ./scripts/provision-token-contracts.sh
+  npm run start:blockchain:client & truffle migrate --compilers.solc.parser=solcjs --reset --compile-all && truffle test --compilers.solc.parser=solcjs ./test/contracts-network/* ./test/extensions/* --network development
+
 elif [ "$PACKAGES" = true ]; then
 
   docker pull ethereum/solc:0.4.22
