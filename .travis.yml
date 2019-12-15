@@ -7,8 +7,8 @@ before_install:
   - npm install -g yarn
 
 matrix:
-  fast_finish: true
   include:
+    - node_js: 10
       env: COLONY=true
 
 install:
