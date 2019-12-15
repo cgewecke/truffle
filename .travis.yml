@@ -9,11 +9,11 @@ before_install:
 matrix:
   include:
     - node_js: 10
-      env: COLONY=true
+      env: MOSAIC=true
 
 install:
   - yarn bootstrap
-  - truffle obtain --solc=0.5.8
+  - truffle obtain --solc=0.5.13
 
 cache:
   directories:
