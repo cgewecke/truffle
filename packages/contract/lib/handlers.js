@@ -41,7 +41,7 @@ const handlers = {
   setup: function(emitter, context) {
     emitter.on("error", handlers.error.bind(emitter, context));
     emitter.on("transactionHash", handlers.hash.bind(emitter, context));
-    emitter.on("confirmation", handlers.confirmation.bind(emitter, context));
+    //emitter.on("confirmation", handlers.confirmation.bind(emitter, context));
     emitter.on("receipt", handlers.receipt.bind(emitter, context));
   },
 
