@@ -89,6 +89,11 @@ elif [ "$MOSAIC" = true ]; then
   cd mosaic-1
   git checkout feature/consensus
   npm install
+  npm uninstall --save-dev truffle
+  npm uninstall --save-dev web3
+  npm install --save-dev web3
+
+  npm list web3
 
   ./tools/run_ganache_cli.sh </dev/null 1>/dev/null 2>&1 &
   sleep 10
